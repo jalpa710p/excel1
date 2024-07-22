@@ -140,6 +140,10 @@ def e_otp(request):
             otp4 = request.POST.get('otp4')
 
             user_otp = otp1 + otp2 + otp3 + otp4
+            print("email_user_otp = ", user_otp)
+            print(type(user_otp))
+
+
 
             if user_otp == obj.email_otp:
                 otp_time = 3
@@ -273,11 +277,7 @@ def ph_otp(request):
 
 
 def view(request, id):
-    # Retrieve the object from the database based on the id
     data = MyModel.objects.get(id=id)
-    # if request.method == 'POST':
-    #     data = MyModel.objects.all()
-    #     return render(request, 'view.html', {'data': data})
     return render(request, 'view.html', {'data': data})
 
 def edit(request, id):
