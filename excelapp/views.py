@@ -140,10 +140,8 @@ def e_otp(request):
             otp4 = request.POST.get('otp4')
 
             user_otp = otp1 + otp2 + otp3 + otp4
-            print("email_user_otp = ", user_otp)
-            print(type(user_otp))
-
-
+            request.session = ['email']
+            print("Email_otp::", e_otp)
 
             if user_otp == obj.email_otp:
                 otp_time = 3
